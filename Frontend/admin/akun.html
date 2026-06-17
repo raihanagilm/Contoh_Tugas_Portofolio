@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akun - Admin Portofolio</title>
+    <!-- Font Awesome untuk ikon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/akun.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Admin Panel</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+          <li><a href="experience.html"><i class="fas fa-briefcase"></i> Experience</a></li>
+          <li><a href="projects.html"><i class="fas fa-folder"></i> Projects</a></li>
+          <li><a href="skills.html"><i class="fas fa-star"></i> Skills</a></li>
+          <li><a href="akun.html" class="active"><i class="fas fa-user"></i> Akun</a></li>
+          <li><a href="../../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-bar">
+        <h1>Kelola Akun</h1>
+        <div class="user-info">
+          <span>Halo, Admin</span>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <!-- Form Data Diri -->
+        <div class="form-section">
+          <h3>Data Diri</h3>
+          <form id="profileForm" class="data-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="namaLengkap">Nama Lengkap</label>
+                <input type="text" id="namaLengkap" placeholder="Masukkan nama lengkap" required />
+              </div>
+              <div class="form-group">
+                <label for="namaPanggilan">Nama Panggilan</label>
+                <input type="text" id="namaPanggilan" placeholder="Masukkan nama panggilan" required />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tempatLahir">Tempat Lahir</label>
+                <input type="text" id="tempatLahir" placeholder="Tempat lahir" required />
+              </div>
+              <div class="form-group">
+                <label for="tanggalLahir">Tanggal Lahir</label>
+                <input type="date" id="tanggalLahir" required />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="contoh@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="telepon">Telepon / WhatsApp</label>
+                <input type="tel" id="telepon" placeholder="08xxxxxxxxxx" required />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="universitas">Universitas</label>
+                <input type="text" id="universitas" placeholder="Nama universitas" required />
+              </div>
+              <div class="form-group">
+                <label for="fakultas">Fakultas</label>
+                <input type="text" id="fakultas" placeholder="Nama fakultas" required />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="programStudi">Program Studi</label>
+                <input type="text" id="programStudi" placeholder="Jurusan/Prodi" required />
+              </div>
+              <div class="form-group">
+                <label for="semester">Semester</label>
+                <input type="number" id="semester" placeholder="Contoh: 5" min="1" max="14" required />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="alamat">Alamat</label>
+                <textarea id="alamat" rows="3" placeholder="Alamat lengkap" required></textarea>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="foto">Foto Profil</label>
+                <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImage(this)" />
+                <div class="image-preview-container" id="previewContainer" style="margin-top: 10px; display: none;">
+                  <p style="font-size: 0.9em; color: #666;">Preview:</p>
+                  <img id="preview-img" src="" alt="Preview Foto" style="max-width: 200px; max-height: 200px; border-radius: 8px; border: 2px solid #ddd; object-fit: cover;" />
+                </div>
+                <small style="color: #666; display: block; margin-top: 5px;">Format: JPG, PNG. Maksimal ukuran disarankan &lt; 500KB agar penyimpanan lokal tidak penuh.</small>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+                <i class="fas fa-save"></i> Simpan Data Diri
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Form Ubah Password -->
+        <div class="form-section">
+          <h3>Ubah Password</h3>
+          <form id="passwordForm" class="data-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="currentPassword">Password Saat Ini</label>
+                <input type="password" id="currentPassword" placeholder="Masukkan password saat ini" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="newPassword">Password Baru</label>
+                <input type="password" id="newPassword" placeholder="Masukkan password baru" required />
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Konfirmasi Password Baru</label>
+                <input type="password" id="confirmPassword" placeholder="Ulangi password baru" required />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Ubah Password
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Preview Data -->
+        <div class="info-section">
+          <h3>Preview Data Diri</h3>
+          <div class="info-card" id="profilePreview">
+            <p style="color: var(--text-gray); text-align: center;">Belum ada data yang disimpan</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/init-data.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/akun.js"></script>
+  </body>
+</html>
